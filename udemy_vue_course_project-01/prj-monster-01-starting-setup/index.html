@@ -30,10 +30,10 @@
         </div>
       </section>
       <section id="controls">
-        <button @click="attackMonster(false)">ATTACK</button>
-        <button @click="attackMonster(true)">SPECIAL ATTACK</button>
-        <button @click="healPlayer()">HEAL</button>
-        <button>SURRENDER</button>
+        <button :disabled="!playerAlive" @click="attackMonster(false)">ATTACK</button>
+        <button :disabled="!canUseSpecialAttack || !playerAlive" @click="attackMonster(true)">SPECIAL ATTACK</button>
+        <button :disabled="!playerAlive" @click="healPlayer()">HEAL</button>
+        <button :disabled="!playerAlive">SURRENDER</button>
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
